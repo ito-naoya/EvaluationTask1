@@ -48,6 +48,14 @@
 		    <br>
 		    <input type="date" name="issueDate" id="issueDate" class="form-control" value="<%= bb.getIssueDate() %>">
 		  </div>
+		   <div class="d-flex mb-3 justify-content-around">
+		   	<p class="m-0">
+		   		登録日時：<%= bb.getCreateDatetime()%>
+		   	</p>
+		   	<p class="m-0">
+		   		更新日時：<%= bb.getUpdateDatetime() %>
+		   	</p>
+		   </div>
 		  <button type="submit" class="btn btn-primary">更新</button>
 		  <a href="bookList" class="ms-3">一覧へ戻る</a>
 		</form>

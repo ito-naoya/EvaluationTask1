@@ -17,7 +17,7 @@
 <body>
  	<div class="container" style="margin-top: 30px">
  	<span style="color: red;">編集したい行をダブルクリックで選択</span>
-		<table class="table table-bordered text-center m-auto st-tbl1" style="borderColor: orange;"id="bookTable">
+		<table id="bookTable" class="table table-bordered text-center m-auto st-tbl1">
 			<thead>
 				<tr>
 					<th style="background-color: darkblue; color: white;">JANコード</th>
