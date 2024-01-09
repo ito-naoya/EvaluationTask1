@@ -25,6 +25,14 @@ public class EditBookInfoController extends HttpServlet {
 		String janCd = request.getParameter("janCd");
 		BookBean bb = SelectBook.selectBook(janCd);
 		
+		if(bb == null) {
+			request.setAttribute("message", "書籍情報の取得に失敗しました。");	
+			
+			String view = "/WEB-INF/views/message.jsp";
+			request.getRequestDispatcher(view).forward(request, response);
+			return;
+		}
+		
 		request.setAttribute("bookBean", bb);
 		
 		String view = "/WEB-INF/views/bookEdit.jsp";
@@ -43,7 +51,14 @@ public class EditBookInfoController extends HttpServlet {
 		Integer price = Integer.valueOf(request.getParameter("price"));		
 		String issueDate = request.getParameter("issueDate");
 		
-		UpdateBook.updateBook(updateJanCd, isbnCd, bookNm, bookKana, price, issueDate, janCd);
+		Boolean isCommit = UpdateBook.updateBook(updateJanCd, isbnCd, bookNm, bookKana, price, issueDate, janCd);
+		
+		if(!isCommit) {
+			request.setAttribute("message", "書籍情報の更新に失敗しました。");	
+			String view = "/WEB-INF/views/message.jsp";
+			request.getRequestDispatcher(view).forward(request, response);
+			return;
+		}
 		
 		response.sendRedirect("bookList");
 		

@@ -9,7 +9,7 @@ import dao.GeneralDao;
 
 public class UpdateBook {
 	
-	public static void updateBook(String updateJanCd, String isbnCd, String bookNm, String bookKana, Integer price, String issueDate, String janCd) {
+	public static Boolean updateBook(String updateJanCd, String isbnCd, String bookNm, String bookKana, Integer price, String issueDate, String janCd) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE "						);
 		sb.append(	"BOOK "						);
@@ -34,20 +34,31 @@ public class UpdateBook {
 		params.add(issueDate);
 		params.add(janCd);
 		
+		int updatedRows = 0;
+		Boolean isCommit = false;
+		
 		try(Connection conn = DatabaseConnection.getConnection()){
 			try {
 				
-				 GeneralDao.executeUpdate(conn, UPDATE_BOOK_INFO_SQL, params);
+				 updatedRows = GeneralDao.executeUpdate(conn, UPDATE_BOOK_INFO_SQL, params);
+				 
+				 if(updatedRows == 0)throw new SQLException();
+					 
 				 conn.commit();
+				 isCommit = true;
 			}catch(SQLException e) {
 				if(!conn.isClosed()) {
 					conn.rollback();
 				}
 				e.printStackTrace();
+				return false;
 			}
 		}catch(SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
+			return false;
 		}
+		
+		return isCommit;
 		
 	}
 	

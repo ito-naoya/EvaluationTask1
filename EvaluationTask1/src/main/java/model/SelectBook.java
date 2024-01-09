@@ -49,6 +49,8 @@ public class SelectBook {
 					bb.setUpdateDatetime(rs.getDate("UPDATE_DATETIME"));
 				}
 				
+				if(bb == null) throw new SQLException();
+				
 			}catch(SQLException e) {
 				if(!conn.isClosed()) {
 					conn.rollback();
