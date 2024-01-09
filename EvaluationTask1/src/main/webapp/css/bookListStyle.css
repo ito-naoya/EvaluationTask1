@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
 #bookTable tr:hover td {
- 	background-color: red;
-}
+ 	background-color: lightslategray;
+ 	color: white;
+};

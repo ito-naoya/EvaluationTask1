@@ -12,7 +12,7 @@
 	rel="stylesheet"
 	integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
 	crossorigin="anonymous">
-<link rel="stylesjeet" href="./css/bookListStyle.css">
+<link rel="stylesheet" href="./css/bookListStyle.css">
 </head>
 <body>
  	<div class="container" style="margin-top: 30px">
@@ -43,7 +43,7 @@
 					<td><%= bb.getIsbnCd() %></td>
 					<td><%= bb.getBookNm() %></td>
 					<td><%= bb.getBookKana() %></td>
-					<td><%= bb.getPrice() %></td>
+					<td><%= String.format("%,d", bb.getPrice()) %></td>
 					<td><%= bb.getIssueDate() %></td>
 					<td><%= bb.getCreateDatetime() %></td>
 					<td><%= bb.getUpdateDatetime() == null ? "更新履歴なし" : bb.getUpdateDatetime() %></td>
