@@ -36,11 +36,14 @@ public class EditBookInfoController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String janCd = request.getParameter("janCd");
+		String updateJanCd = request.getParameter("updateJanCd");
+		String isbnCd = request.getParameter("isbnCd");
 		String bookNm = request.getParameter("bookNm");
 		String bookKana = request.getParameter("bookKana");
-		Integer price = Integer.valueOf(request.getParameter("price"));
+		Integer price = Integer.valueOf(request.getParameter("price"));		
+		String issueDate = request.getParameter("issueDate");
 		
-		UpdateBook.updateBook(bookNm, bookKana, price, janCd);
+		UpdateBook.updateBook(updateJanCd, isbnCd, bookNm, bookKana, price, issueDate, janCd);
 		
 		response.sendRedirect("bookList");
 		

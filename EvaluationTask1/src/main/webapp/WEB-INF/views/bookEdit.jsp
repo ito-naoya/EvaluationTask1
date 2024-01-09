@@ -18,15 +18,15 @@
 	<% BookBean bb = (BookBean)request.getAttribute("bookBean"); %>
 		<form action="editBookInfo" method="POST">
 		  <div class="mb-3">
-		    <label class="form-label">JANコード<span style="color:red;"><small>(編集不可)</small></span></label>
+		    <label for="updateJanCd" class="form-label">JANコード</label>
 		    <br>
-		    <input disabled type="text" class="form-control" value="<%= bb.getJanCd() %>">
-		    <input type=hidden name="janCd" value="<%= bb.getJanCd() %>">
+		    <input type="text" name="updateJanCd" id="updateJanCd" class="form-control" value="<%= bb.getJanCd() %>">
+		    <input type="hidden" name="janCd" id="janCd" class="form-control" value="<%= bb.getJanCd() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">ISBNコード<span style="color:red;"><small>(編集不可)</small></span></label>
+		    <label for="isbnCd" class="form-label">ISBNコード</label>
 		    <br>
-		    <input disabled type="text" class="form-control" value="<%= bb.getIsbnCd() %>">
+		    <input type="text" name="isbnCd" id="isbnCd" class="form-control" value="<%= bb.getIsbnCd() %>">
 		  </div>
 		  <div class="mb-3">
 		    <label for="bookNm" class="form-label">書籍名称</label>
@@ -44,19 +44,9 @@
 		    <input type="number" name="price" id="price" class="form-control" min="1" value="<%= bb.getPrice() %>" required>
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">発行日<span style="color:red;"><small>(編集不可)</small></span></label>
+		    <label for="issueDate" class="form-label">発行日</label>
 		    <br>
-		    <input disabled type="text" class="form-control" value="<%= bb.getIssueDate() %>">
-		  </div>
-		  <div class="mb-3">
-		    <label class="form-label">登録日時<span style="color:red;"><small>(編集不可)</small></span></label>
-		    <br>
-		    <input disabled type="text" class="form-control" value="<%= bb.getCreateDatetime() %>">
-		  </div>
-		  <div class="mb-3">
-		    <label class="form-label">更新日時<span style="color:red;"><small>(編集不可)</small></span></label>
-		    <br>
-		    <input disabled type="text" class="form-control" value="<%= bb.getUpdateDatetime() == null ? "更新履歴なし" : bb.getUpdateDatetime() %>">
+		    <input type="date" name="issueDate" id="issueDate" class="form-control" value="<%= bb.getIssueDate() %>">
 		  </div>
 		  <button type="submit" class="btn btn-primary">更新</button>
 		  <a href="bookList" class="ms-3">一覧へ戻る</a>
