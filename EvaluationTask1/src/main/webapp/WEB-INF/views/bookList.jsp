@@ -17,17 +17,17 @@
 <body>
  	<div class="container" style="margin-top: 30px">
  	<span style="color: red;">編集したい行をダブルクリックで選択</span>
-		<table class="table border text-center m-auto st-tbl1" id="bookTable">
+		<table class="table table-bordered text-center m-auto st-tbl1" style="borderColor: orange;"id="bookTable">
 			<thead>
 				<tr>
-					<th>JAN_CD</th>
-					<th>ISBN_CD</th>
-					<th>BOOK_NM</th>
-					<th>BOOK_KANA</th>
-					<th>PRICE</th>
-					<th>ISSUE_DATE</th>
-					<th>CREATE_DATETIME</th>
-					<th>UPDATE_DATETIME</th>
+					<th style="background-color: darkblue; color: white;">JANコード</th>
+					<th style="background-color: darkblue; color: white;">ISBNコード</th>
+					<th style="background-color: darkblue; color: white;">書籍名</th>
+					<th style="background-color: darkblue; color: white;">書籍名（カナ表記）</th>
+					<th style="background-color: darkblue; color: white;">価格</th>
+					<th style="background-color: darkblue; color: white;">発行日</th>
+					<th style="background-color: darkblue; color: white;">作成日</th>
+					<th style="background-color: darkblue; color: white;">更新日</th>
 				</tr>
 			</thead>
 			<tbody>
