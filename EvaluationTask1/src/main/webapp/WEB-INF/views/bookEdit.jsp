@@ -18,23 +18,23 @@
 	<% BookBean bb = (BookBean)request.getAttribute("bookBean"); %>
 		<form action="editBookInfo" method="POST">
 		  <div class="mb-3">
-		    <label class="form-label">JANコード<span style="color:red;">(編集不可)</span></label>
+		    <label class="form-label">JANコード<span style="color:red;"><small>(編集不可)</small></span></label>
 		    <br>
 		    <input disabled type="text" class="form-control" value="<%= bb.getJanCd() %>">
 		    <input type=hidden name="janCd" value="<%= bb.getJanCd() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">ISBNコード<span style="color:red;">(編集不可)</span></label>
+		    <label class="form-label">ISBNコード<span style="color:red;"><small>(編集不可)</small></span></label>
 		    <br>
 		    <input disabled type="text" class="form-control" value="<%= bb.getIsbnCd() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label for="bookNm" class="form-label">書籍名</label>
+		    <label for="bookNm" class="form-label">書籍名称</label>
 		    <br>
 		    <input type="text" name="bookNm" id="bookNm" class="form-control" value="<%= bb.getBookNm() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label for="bookKana" class="form-label">書籍名（カナ表記）</label>
+		    <label for="bookKana" class="form-label">書籍名称カナ</label>
 		    <br>
 		    <input type="text" name="bookKana" id="bookKana" class="form-control" value="<%= bb.getBookKana() %>">
 		  </div>
@@ -44,17 +44,17 @@
 		    <input type="number" name="price" id="price" class="form-control" min="1" value="<%= bb.getPrice() %>" required>
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">発行日<span style="color:red;">(編集不可)</span></label>
+		    <label class="form-label">発行日<span style="color:red;"><small>(編集不可)</small></span></label>
 		    <br>
 		    <input disabled type="text" class="form-control" value="<%= bb.getIssueDate() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">作成日<span style="color:red;">(編集不可)</span></label>
+		    <label class="form-label">登録日時<span style="color:red;"><small>(編集不可)</small></span></label>
 		    <br>
 		    <input disabled type="text" class="form-control" value="<%= bb.getCreateDatetime() %>">
 		  </div>
 		  <div class="mb-3">
-		    <label class="form-label">更新日<span style="color:red;">(編集不可)</span></label>
+		    <label class="form-label">更新日時<span style="color:red;"><small>(編集不可)</small></span></label>
 		    <br>
 		    <input disabled type="text" class="form-control" value="<%= bb.getUpdateDatetime() == null ? "更新履歴なし" : bb.getUpdateDatetime() %>">
 		  </div>

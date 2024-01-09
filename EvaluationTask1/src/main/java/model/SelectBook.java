@@ -14,19 +14,19 @@ public class SelectBook {
 	public static BookBean selectBook(String janCd){
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT ");	
-		sb.append(	"JAN_CD, ");	
-		sb.append(	"ISBN_CD, ");	
-		sb.append(	"BOOK_NM, ");	
-		sb.append(	"BOOK_KANA, ");	
-		sb.append(	"PRICE, ");	
-		sb.append(	"ISSUE_DATE, ");	
-		sb.append(	"CREATE_DATETIME, ");	
-		sb.append(	"UPDATE_DATETIME ");	
-		sb.append("FROM ");	
-		sb.append(	"BOOK ");	
-		sb.append("WHERE ");	
-		sb.append(	"JAN_CD = ?");	
+		sb.append("SELECT "					);
+		sb.append(	"JAN_CD, "				);
+		sb.append(	"ISBN_CD, "				);
+		sb.append(	"BOOK_NM, "				);
+		sb.append(	"BOOK_KANA, "			);
+		sb.append(	"PRICE, "				);
+		sb.append(	"ISSUE_DATE, "			);
+		sb.append(	"CREATE_DATETIME, "		);
+		sb.append(	"UPDATE_DATETIME "		);
+		sb.append("FROM "					);
+		sb.append(	"BOOK "					);
+		sb.append("WHERE "					);
+		sb.append(	"JAN_CD = ?"			);
 		final String SELECT_BOOK_LIST_SQL = sb.toString();
 		
 		BookBean bb = null;

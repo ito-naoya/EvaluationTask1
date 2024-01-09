@@ -22,12 +22,12 @@
 				<tr>
 					<th style="background-color: darkblue; color: white;">JANコード</th>
 					<th style="background-color: darkblue; color: white;">ISBNコード</th>
-					<th style="background-color: darkblue; color: white;">書籍名</th>
-					<th style="background-color: darkblue; color: white;">書籍名（カナ表記）</th>
+					<th style="background-color: darkblue; color: white;">書籍名称</th>
+					<th style="background-color: darkblue; color: white;">書籍名称カナ</th>
 					<th style="background-color: darkblue; color: white;">価格</th>
 					<th style="background-color: darkblue; color: white;">発行日</th>
-					<th style="background-color: darkblue; color: white;">作成日</th>
-					<th style="background-color: darkblue; color: white;">更新日</th>
+					<th style="background-color: darkblue; color: white;">登録日時</th>
+					<th style="background-color: darkblue; color: white;">更新日時</th>
 				</tr>
 			</thead>
 			<tbody>

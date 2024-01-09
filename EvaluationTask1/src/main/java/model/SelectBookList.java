@@ -14,17 +14,17 @@ public class SelectBookList {
 	public static ArrayList<BookBean> selectBookList(){
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("SELECT ");	
-		sb.append(	"JAN_CD, ");	
-		sb.append(	"ISBN_CD, ");	
-		sb.append(	"BOOK_NM, ");	
-		sb.append(	"BOOK_KANA, ");	
-		sb.append(	"PRICE, ");	
-		sb.append(	"ISSUE_DATE, ");	
-		sb.append(	"CREATE_DATETIME, ");	
-		sb.append(	"UPDATE_DATETIME ");	
-		sb.append("FROM ");	
-		sb.append(	"BOOK");	
+		sb.append("SELECT "					);
+		sb.append(	"JAN_CD, "				);
+		sb.append(	"ISBN_CD, "				);
+		sb.append(	"BOOK_NM, "				);
+		sb.append(	"BOOK_KANA, "			);
+		sb.append(	"PRICE, "				);
+		sb.append(	"ISSUE_DATE, "			);
+		sb.append(	"CREATE_DATETIME, "		);
+		sb.append(	"UPDATE_DATETIME "		);
+		sb.append("FROM "					);
+		sb.append(	"BOOK"					);
 		final String SELECT_BOOK_LIST_SQL = sb.toString();
 		
 		ArrayList<BookBean> bookBeanList = new ArrayList<BookBean>();
