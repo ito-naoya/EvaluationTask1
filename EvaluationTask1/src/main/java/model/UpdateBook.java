@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.DatabaseConnection;
+import dao.DbConnection;
 import dao.GeneralDao;
 
 public class UpdateBook {
 	
-	public static Boolean updateBook(String updateJanCd, String isbnCd, String bookNm, String bookKana, Integer price, String issueDate, String janCd) {
+	public static Boolean updateBook(String originJanCd, String isbnCd, String bookNm, String bookKana, Integer price, String issueDate, String janCd) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("UPDATE "						);
 		sb.append(	"BOOK "						);
@@ -26,18 +26,18 @@ public class UpdateBook {
 		final String UPDATE_BOOK_INFO_SQL = sb.toString();
 		
 		ArrayList<Object> params = new ArrayList<>();
-		params.add(updateJanCd);
+		params.add(janCd);
 		params.add(isbnCd);
 		params.add(bookNm);
 		params.add(bookKana);
 		params.add(price);
 		params.add(issueDate);
-		params.add(janCd);
+		params.add(originJanCd);
 		
 		int updatedRows = 0;
 		Boolean isCommit = false;
 		
-		try(Connection conn = DatabaseConnection.getConnection()){
+		try(Connection conn = DbConnection.getConnection()){
 			try {
 				
 				 updatedRows = GeneralDao.executeUpdate(conn, UPDATE_BOOK_INFO_SQL, params);

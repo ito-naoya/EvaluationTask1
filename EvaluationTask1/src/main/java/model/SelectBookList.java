@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import beans.BookBean;
-import dao.DatabaseConnection;
+import dao.DbConnection;
 import dao.GeneralDao;
 
 public class SelectBookList {
@@ -29,7 +29,7 @@ public class SelectBookList {
 		
 		ArrayList<BookBean> bookBeanList = new ArrayList<BookBean>();
 		
-		try(Connection conn = DatabaseConnection.getConnection();){
+		try(Connection conn = DbConnection.getConnection();){
 			try(ResultSet rs = GeneralDao.executeQuery(conn,SELECT_BOOK_LIST_SQL, new ArrayList<>())){
 				
 				while (rs.next()) {

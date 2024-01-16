@@ -16,7 +16,12 @@
 </head>
 <body>
  	<div class="container" style="margin-top: 30px">
- 	<span style="color: red;">編集したい行をダブルクリックで選択</span>
+ 	<div class="d-flex justify-content-between mb-3">
+ 		<span style="color: red;">編集したい行をダブルクリックで選択</span>
+ 		<form action="bookForm" method="GET">
+		 	<button type="submit" class="btn btn-primary ms-1">書籍を新規登録する</button>
+ 		</form>
+ 	</div>
 		<table id="bookTable" class="table table-bordered text-center m-auto st-tbl1">
 			<thead>
 				<tr>
@@ -38,7 +43,7 @@
 				<%
 				for (BookBean bb : bookBeanList) {
 				%>
-				<tr ondblclick="location.href='editBookInfo?janCd=<%=bb.getJanCd()%>'" style="cursor: pointer;">
+				<tr ondblclick="location.href='bookForm?janCd=<%=bb.getJanCd()%>'" style="cursor: pointer;">
 					<td><%= bb.getJanCd() %></td>
 					<td><%= bb.getIsbnCd() %></td>
 					<td><%= bb.getBookNm() %></td>
