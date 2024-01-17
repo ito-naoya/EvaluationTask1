@@ -21,9 +21,11 @@ public class BookBean {
 	private String isbnCd;
 	
 	@Length(groups= {GroupA.class}, min=1, max=100, message="1文字以上100文字以内で入力してください。")
+	@Pattern(groups= {GroupA.class}, regexp="^[^-~｡-ﾟ]*$", message="使用できる文字は、全角ひらがな、漢字、「ー」のみです。")
 	private String bookNm;
 	
 	@Length(groups= {GroupA.class}, min=1, max=100, message="1文字以上100文字以内で入力してください。")
+	@Pattern(groups= {GroupA.class}, regexp="^[ァ-ンヴー\\s　]*$", message="使用できる文字は、全角カタカナのみです。")
 	private String bookKana;
 	
 	@Range(groups= {GroupA.class}, min=1, max=10000, message="1円以上10000円以下で入力してください。")
