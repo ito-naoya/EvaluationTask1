@@ -18,19 +18,18 @@
 		<% BookBean bb = (BookBean)request.getAttribute("bookBean"); %>
 		<form action="bookForm" method="POST" id="bookForm">
 
-				<div class="mb-3">
+			<div class="mb-3">
+				<% String isExist = (String)request.getAttribute("isExist"); %>
 				<label for="janCd" class="form-label">JANコード</label>
+				<label for="janCd" style="color: red"><%= isExist != null && !isExist.isEmpty() ? isExist : "" %></label>
 				<br>
-				<input type="text" min="13" max="13" name="janCd" id="janCd" class="form-control" value="<%= bb == null ? "" : bb.getJanCd() %>" required>
 				<% String janCd = (String)request.getAttribute("janCd"); %>
+				<input type="text" min="13" max="13" name="janCd" id="janCd" class="form-control" value="<%= bb == null ? "" : bb.getJanCd() %>" required>
 				<label for="janCd" style="color: red;"><%= janCd == null ? "" : janCd %></label>
-				<%
-				if(bb != null && bb.getCreateDatetime() != null){
-				%>
-					<input type="hidden" name="originJanCd" id="originJanCd" class="form-control" value="<%= bb == null ? "" : bb.getJanCd() %>">
-				<%
-				}
-				%>
+				<% String originJanCd = (String)request.getAttribute("originJanCd"); %>
+				<% if(bb != null && bb.getCreateDatetime() != null) { %>
+					<input type="hidden" name="originJanCd" id="originJanCd" class="form-control" value="<%= originJanCd == null ? bb.getJanCd()  : originJanCd %>">
+				<% } %>
 			</div>
 
 			<div class="mb-3">
@@ -76,39 +75,27 @@
 		   <div class="d-flex mb-3 justify-content-around">
 			   	<p class="m-0">
 			   		登録日時：
-			   		<%
-			   		if(bb != null){
-			   		%>
+			   		<% if(bb != null) { %>
 			   			<%= bb.getCreateDatetime() == null ? "" : bb.getCreateDatetime()%>
 			   			<input type="hidden" name="createDate" value="<%= bb != null && bb.getCreateDatetime() == null ? "" : bb.getCreateDatetime()%>">
-			   		<%
-			   		}
-			   		%>
+			   		<% } %>
 			   	</p>
 			   	<p class="m-0">
 			   		更新日時：
-			   		<%
-			   		if(bb != null){
-			   		%>
+			   		<% if(bb != null) { %>
 				   		<%= bb.getUpdateDatetime() == null ? "" : bb.getUpdateDatetime() %>
 				   		<input type="hidden" name="updateDate" value="<%= bb != null && bb.getUpdateDatetime() == null ? "" : bb.getUpdateDatetime() %>">
-			   		<%
-			   		}
-			   		%>
+			   		<% } %>
 			   	</p>
 		   </div>
 		</form>
 		<div class="d-flex align-items-center">
-			<%
-			if(bb != null && bb.getCreateDatetime() != null){
-			%>
-			<form action="deleteBook" method="GET">
-				 <input type="hidden" name="janCd" value="<%= bb.getJanCd() %>">
-				 <button type="submit" class="btn btn-danger">削除</button>
-			</form>
-			<%
-			}
-			%>
+			<% if(bb != null && bb.getCreateDatetime() != null) { %>
+				<form action="deleteBook" method="GET">
+					 <input type="hidden" name="janCd" value="<%= bb.getJanCd() %>">
+					 <button type="submit" class="btn btn-danger">削除</button>
+				</form>
+			<% } %>
 			 <button form="bookForm" type="submit" class="btn btn-primary ms-1"><%= bb != null && bb.getCreateDatetime() != null ? "更新" : "新規登録" %></button>
 			<a href="bookList" class="ms-3">一覧へ戻る</a>
 		</div>

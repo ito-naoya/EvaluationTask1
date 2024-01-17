@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.InsertBook;
 import model.SelectBook;
+import model.SelectJanCd;
 import model.UpdateBook;
 
 @WebServlet("/bookForm")
@@ -74,9 +75,15 @@ public class BookFormController extends HttpServlet {
 		
 		Boolean isViolation = BeanValidation.validate(request, "bookBean", bb, GroupA.class);
 		
-		if(isViolation) {
+		int isCount = 0;
+		
+		if(!janCd.equals(originJanCd)) isCount = SelectJanCd.selectJanCd(janCd);
+
+		if(isViolation || isCount > 0) {
+			if(isCount > 0) request.setAttribute("isExist", "このJANコードはすでに登録されています。");
 			if(createDate != null && !createDate.isEmpty() && !createDate.equals("")) bb.setCreateDatetime(Date.valueOf(createDate));
 			if(updateDate != null && !updateDate.isEmpty() && !updateDate.equals(""))bb.setUpdateDatetime(Date.valueOf(updateDate));
+			if(originJanCd != null && !originJanCd.isEmpty() && !originJanCd.equals("")) request.setAttribute("originJanCd", originJanCd);
 			request.setAttribute("bookBean", bb);
 			String view = "/WEB-INF/views/bookForm.jsp";
 			request.getRequestDispatcher(view).forward(request, response);
